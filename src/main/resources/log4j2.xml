@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn" name="MyApp" packages="">
+    <Appenders>
+        <File name="File" fileName="logs/myapp.log">
+            <PatternLayout pattern="%d %p %C{1.} [%t] %m%n" />
+        </File>
+    </Appenders>
+    <Loggers>
+        <Root level="error">
+            <AppenderRef ref="File" />
+        </Root>
+    </Loggers>
+</Configuration>
