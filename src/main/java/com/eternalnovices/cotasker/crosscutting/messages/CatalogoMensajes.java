@@ -408,7 +408,7 @@ public class CatalogoMensajes {
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000210, TipoMensaje.USUARIO, CategoriaMensaje.ADVERTENCIA,
 				"La contraseña del usuario  es un dato obligatorio"));
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000211, TipoMensaje.USUARIO, CategoriaMensaje.ADVERTENCIA,
-				"La contraseña del usuario solo debe contener digitos letras o espacios"));
+				"La contraseña del usuario debe contener minimo una letra mayuscula, un caracter especial y un numero."));
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000212, TipoMensaje.USUARIO, CategoriaMensaje.ADVERTENCIA,
 				"La longitud del correo electronico del usuario no es valida. La longitud maxima son 100 caracteres"));
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000213, TipoMensaje.USUARIO, CategoriaMensaje.ADVERTENCIA,
@@ -540,163 +540,169 @@ public class CatalogoMensajes {
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000271, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema en el metodo setFactoria de la clase ConsultarProyectoUseCase.Debido a que la factoria con la cual se desea registrar��esta��nula"));
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000272, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
-				"No se puede registrar un Proyecto con el mismo nombre"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000801, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"Un usuario no puede registrar un Proyecto con el mismo nombre"));
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000273, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema tratando de llevar a cabo la consulta de datos de una lista de tareas"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000802, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000274, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema en el metodo setFactoria de la clase ConsultarListaTareasUseCase.Debido a que la factoria con la cual se desea crear esta nula"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000803, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000275, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"Se presento un error inesperado tratando de consultar una lista de tareas"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000804, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000276, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema inesperado en función execute en ConsultarListaTareasFacade tratando de consultar una lista de tareas.Se presento una excepción de tipo Exception. Por favor verifique la traza del error presentado..."));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000805, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000277, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema tratando de llevar a cabo la consulta de datos de una tarea"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000806, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000278, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema en el metodo setFactoria de la clase ConsultarTareaUseCase.Debido a que la factoria con la cual se desea crear esta nula"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000807, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000279, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"Se presento un error inesperado tratando de consultar una tarea"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000808, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000280, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema inesperado en función execute en ConsultarTareaFacade tratando de consultar una tarea.Se presento una excepción de tipo Exception. Por favor verifique la traza del error presentado..."));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000809, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000281, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"Ya existe una tarea con ese nombre"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000810, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000282, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema tratando de llevar a cabo el registro de datos de una nueva tarea"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000811, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000283, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema en el metodo setFactoria de la clase RegistroTareaUseCase.Debido a que la factoria con la cual se desea crear esta nula"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000812, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000284, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"Se presento un error inesperado tratando de registrar una Tarea"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000813, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000285, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema inesperado en función execute en RegistrarTareaFacade tratando de insertar una nueva tarea.Se presento una excepción de tipo Exception. Por favor verifique la traza del error presentado..."));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000814, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000286, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"Ya existe una lista de tareas con ese nombre"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000000901, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000311, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema tratando de llevar a cabo la modificacion  de datos de un proyecto"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000000902, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000312, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema en el metodo setFactoria de la clase RegistroProyectoUseCase.Debido a que la factoria con la cual se desea modificar esta nula"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000815, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000287, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"Se presento un error inesperado tratando de registrar una lista de tarea"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000816, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000288, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema inesperado en función execute en RegistrarListaTareasFacade tratando de insertar una nueva lista de tareas.Se presento una excepción de tipo Exception. Por favor verifique la traza del error presentado..."));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000817, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000289, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"No hay una parea existente para eliminar"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000818, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000290, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema tratando de llevar la eliminación de la tarea"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000819, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000291, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema en el metodo setFactoria de la clase EliminarTareaUseCase.Debido a que la factoria con la cual se desea crear esta nula"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000820, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000292, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"La Lista de tareas a elimianar contiene aun tareas"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000821, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000293, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema tratando de llevar a cabo la eliminacion de la lista de tareas"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000822, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000294, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema en el metodo setFactoria de la clase EliminarListaTareasUseCase.Debido a que la factoria con la cual se desea crear esta nula"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000821, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000293, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema tratando de llevar a cabo la eliminzacion de la lista de tareas"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000822, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000294, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema en el metodo setFactoria de la clase EliminarListaTareasUseCase.Debido a que la factoria con la cual se desea eliminar esta nula"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000823, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000295, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"La lista de tareas a eliminar no existe"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000823, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000295, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"La tarea a eliminar no existe"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000824, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000296, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"Se presento un error inesperado tratando de eliminar una tarea"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000825, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000297, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema inesperado en función execute en EliminarTareaFacade tratando de eliminar una tarea.Se presento una excepción de tipo Exception. Por favor verifique la traza del error presentado..."));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000826, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000298, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema en el metodo toDomain de la clase BooleanEntityMapper.No es posible mapear un Boolean dominio a partir de una entidad de Boolean entity nula"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000827, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000299, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema en el metodo toEntity de la clase BooleanEntityMapper.No es posible mapear un Boolean entity a partir de una entidad de un Boolean domain nula"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000828, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000300, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"No existe un usuario a modificar"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000829, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000301, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"No se puede modificar el usuario deseado. Ya existe un usuario con el correo electronico a modificar"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000830, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000302, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"No existe un proyecto existen a actualizar"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000905, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000303, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"Se presento un error inesperado tratando de consultar un Proyecto"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000906, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000304, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema inesperado en función execute en ConsultarProyectoFacade tratando de consultar un Proyecto.Se presento una excepción de tipo Exception. Por favor verifique la traza del error presentado..."));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000907, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000305, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"Se presento un error inesperado tratando de modificar un Proyecto"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000908, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000306, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema inesperado en función execute en ModificarProyectoFacade tratando de modificar un Proyecto.Se presento una excepción de tipo Exception. Por favor verifique la traza del error presentado..."));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000909, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000307, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"Se presento un error inesperado tratando de eliminar un Proyecto"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000910, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000308, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema inesperado en función execute en EliminarProyectoFacade tratando de eliminar un Proyecto.Se presento una excepción de tipo Exception. Por favor verifique la traza del error presentado..."));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000911, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000309, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"Se presento un error inesperado tratando de registrar un nuevo Proyecto"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000912, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000333, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema inesperado en función execute en RegistrarProyectoFacade tratando de insertar un nuevo Proyecto.Se presento una excepción de tipo Exception. Por favor verifique la traza del error presentado..."));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000831, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000319, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"Se presento un error inesperado tratando de consultar un usuario"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000832, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000320, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema inesperado en función execute en ConsultarUsuarioFacade tratando de consultar un usuario.Se presento una excepción de tipo Exception. Por favor verifique la traza del error presentado..."));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000833, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000321, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"Se presento un error inesperado tratando de eliminar un usuario"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000834, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000322, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema inesperado en función execute en EliminarUsuarioFacade tratando de eliminar un usuario.Se presento una excepción de tipo Exception. Por favor verifique la traza del error presentado..."));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000835, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000323, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"Se presento un error inesperado tratando de registrar un usuario"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000836, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000324, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema inesperado en función execute en RegistrarUsuarioFacade tratando de insertar un nuevo usuario.Se presento una excepción de tipo Exception. Por favor verifique la traza del error presentado..."));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000837, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000325, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"Se presento un error inesperado tratando de modificar un usuario"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000838, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000326, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema inesperado en función execute en ModificarUsuarioFacade tratando de modificar un usuario.Se presento una excepción de tipo Exception. Por favor verifique la traza del error presentado..."));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000913, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000334, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema tratando de llevar a cabo la eliminacion del Proyecto"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000914, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000335, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema en el metodo setFactoria de la clase EliminarProyectoUseCase.Debido a que la factoria con la cual se desea eliminar esta nula"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000915, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000336, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"El Proyecto a elimianar es utilizado actualmente por  un Usuario"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000916, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000337, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"No existe un Proyecto existente a eliminar"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000917, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000339, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema tratando de llevar a cabo el Registro de un usuario en el proyecto"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000918, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000340, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema en el metodo setFactoria de la clase RegistrarUsuarioProyectoUseCase.Debido a que la factoria con la cual se desea registrar esta nula"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000919, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000341, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema tratando de llevar a cabo la eliminacion de un usuario en el proyecto"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000920, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000342, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema en el metodo setFactoria de la clase EliminarUsuarioProyectoUseCase.Debido a que la factoria con la cual se desea registrar esta nula"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000839, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000327, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"No existe un UsuarioProyecto existente a eliminar"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000840, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000328, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema en el metodo setFactoria de la clase EliminarUsuarioProyectoUseCase.Debido a que la factoria con la cual se desea Eliminar esta nula"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000841, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000329, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema tratando de llevar a cabo la eliminacion de un UsuarioProyecto"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000700, TipoMensaje.USUARIO, CategoriaMensaje.CONFIRMACION,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000338, TipoMensaje.USUARIO, CategoriaMensaje.CONFIRMACION,
 				"El usuario fue registrado exitosamente"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000701, TipoMensaje.USUARIO, CategoriaMensaje.CONFIRMACION,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000313, TipoMensaje.USUARIO, CategoriaMensaje.CONFIRMACION,
 				"Logueado"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000702, TipoMensaje.USUARIO, CategoriaMensaje.CONFIRMACION,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000314, TipoMensaje.USUARIO, CategoriaMensaje.CONFIRMACION,
 				"No logueado"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000703, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000315, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
 				"Se ha presentado un problema al crear la conexión SQL. No se ha podido obtener las variables de entorno"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000704, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000316, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
 				"Se ha presentado un problema tratando de crear la conexión SQL. Se presento una excepción de tipo SQLException. Por favor verifique la traza del error presentado..."));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000705, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000317, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
 				"Se ha presentado un problema tratando de crear la conexión SQL. Se presento una excepción inesperada. Por favor verifique la traza del error presentado..."));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000706, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000318, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
 				"Se ha presentado un problema tratando de crear DAO deseado. La conexión esta cerrada..."));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000921, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000343, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"Se presento un error inesperado tratando de registrar un usuarioProyecto"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000922, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000344, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema inesperado en función execute en RegistrarusuarioProyectoFacade tratando de insertar un nuevo usuarioProyecto.Se presento una excepción de tipo Exception. Por favor verifique la traza del error presentado..."));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000923, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000345, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"Se presento un error inesperado tratando de eliminar un usuarioProyecto"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000924, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000346, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema inesperado en función execute en EliminarusuarioProyectoFacade tratando de eliminar un usuarioProyecto.Se presento una excepción de tipo Exception. Por favor verifique la traza del error presentado..."));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000842, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000330, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"Ya existe un UsuarioProyecto con los mismos id"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000843, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000331, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema tratando de llevar a cabo el Registro de un UsuarioProyecto"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000844, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000332, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema en el metodo setFactoria de la clase RegistrarUsuarioProyectoUseCase.Debido a que la factoria con la cual se desea registrar esta nula"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000707, TipoMensaje.USUARIO, CategoriaMensaje.CONFIRMACION,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000347, TipoMensaje.USUARIO, CategoriaMensaje.CONFIRMACION,
 				"El proyecto fue registrado exitosamente"));
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000708, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000348, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema tratando de llevar a cabo el registro de un proyecto"));
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000349, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"No existe el usuario que quiere crear el proyecto"));
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000350, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"Hubo un problema inesperado al crear un proyecto, intente de nuevo"));
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M0000000351, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+				"Se ha presentado un problema inesperado creando UsuarioProyecto, el proyecto con el identificador consultado no existe"));
 	}
 	
 	

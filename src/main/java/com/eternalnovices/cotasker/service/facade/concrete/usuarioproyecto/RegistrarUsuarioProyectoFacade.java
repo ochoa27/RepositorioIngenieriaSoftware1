@@ -32,8 +32,8 @@ public class RegistrarUsuarioProyectoFacade implements Facade<UsuarioProyectoDTO
 			throw exception;
 		} catch (Exception exception) {
 			daofactory.cancelarTransaccion();
-			final var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000921);
-			final var mensajeTecnico = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000922);
+			final var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000343);
+			final var mensajeTecnico = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000344);
 			throw ServiceCoTaskerException.crear(mensajeUsuario, mensajeTecnico);
 		} finally {
 			daofactory.cerrarConexion();

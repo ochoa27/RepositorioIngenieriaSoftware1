@@ -2,6 +2,8 @@ package com.eternalnovices.cotasker.service.bussineslogic.validator.concrete.usu
 
 
 import com.eternalnovices.cotasker.service.bussineslogic.validator.Validator;
+import com.eternalnovices.cotasker.service.domain.proyecto.rules.IdProyectoValidationRule;
+import com.eternalnovices.cotasker.service.domain.usuario.rules.IdUsuarioValidationRule;
 import com.eternalnovices.cotasker.service.domain.usuarioproyecto.UsuarioProyectoDomain;
 import com.eternalnovices.cotasker.service.domain.usuarioproyecto.rules.UsuarioProyectoValidationRule;
 
@@ -18,7 +20,9 @@ private static final Validator<UsuarioProyectoDomain> instancia = new RegistarUs
 	
 	@Override
 	public void execute(UsuarioProyectoDomain domain) {
-		UsuarioProyectoValidationRule.ejecutarValidacion(domain);	
+		UsuarioProyectoValidationRule.ejecutarValidacion(domain);
+		IdUsuarioValidationRule.ejecutarValidacion(domain.getUsuario().getIdUsuario());
+		IdProyectoValidationRule.ejecutarValidacion(domain.getProyecto().getIdProyecto());
 	}
 }
 

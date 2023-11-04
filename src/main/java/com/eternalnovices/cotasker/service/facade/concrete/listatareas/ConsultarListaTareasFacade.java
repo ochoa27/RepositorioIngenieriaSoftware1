@@ -38,8 +38,8 @@ public class ConsultarListaTareasFacade implements FacadeFind<ListaTareasDTO>{
 			throw e;
 		} catch (Exception e) {
 			daofactory.cancelarTransaccion();
-			final var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000803);
-			final var mensajeTecnico = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000804);
+			final var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000275);
+			final var mensajeTecnico = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000276);
 			throw ServiceCoTaskerException.crear(mensajeUsuario, mensajeTecnico);
 		} finally {
 			daofactory.cerrarConexion();

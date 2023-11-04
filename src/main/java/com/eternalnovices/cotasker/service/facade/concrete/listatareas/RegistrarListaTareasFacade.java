@@ -33,8 +33,8 @@ public class RegistrarListaTareasFacade implements Facade<ListaTareasDTO>{
 			throw exception;
 		} catch (Exception exception) {
 			daofactory.cancelarTransaccion();
-			final var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000815);
-			final var mensajeTecnico = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000816);
+			final var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000287);
+			final var mensajeTecnico = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000288);
 			throw ServiceCoTaskerException.crear(mensajeUsuario, mensajeTecnico);
 		} finally {
 			daofactory.cerrarConexion();

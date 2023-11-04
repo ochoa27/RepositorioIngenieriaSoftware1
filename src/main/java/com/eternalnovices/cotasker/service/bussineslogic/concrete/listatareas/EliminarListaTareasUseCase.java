@@ -42,7 +42,7 @@ public class EliminarListaTareasUseCase implements UseCase<ListaTareasDomain> {
 		final var resultados = getListaTareasDAO().consultarPorId(id);
 		
 		if(resultados.isEmpty()) {
-			final var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000823);
+			final var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000295);
 			throw ServiceCoTaskerException.crear(mensajeUsuario);
 		}
 	}
@@ -57,7 +57,7 @@ public class EliminarListaTareasUseCase implements UseCase<ListaTareasDomain> {
 		final var resultados = getTareaDAO().consultar(TareaEntityMapper.convertToEntity(tarea));
 		
 		if(!resultados.isEmpty()) {
-			final var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000820);
+			final var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000292);
 			throw ServiceCoTaskerException.crear(mensajeUsuario);
 		}
 	}
@@ -72,8 +72,8 @@ public class EliminarListaTareasUseCase implements UseCase<ListaTareasDomain> {
 	
 	private final void setFactoria(final DAOFactory factoria) {
 		if(UtilObjeto.esNulo(factoria)) {
-			final var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000821);
-			final var mensajeTecnico = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000822);
+			final var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000293);
+			final var mensajeTecnico = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000294);
 			throw ServiceCoTaskerException.crear(mensajeUsuario, mensajeTecnico);
 		}
 		

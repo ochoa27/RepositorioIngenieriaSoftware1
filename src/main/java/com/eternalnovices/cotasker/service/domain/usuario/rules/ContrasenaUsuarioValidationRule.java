@@ -22,14 +22,6 @@ public class ContrasenaUsuarioValidationRule implements ValidationRule<String> {
 		validarObligatoriedad(dato);
 		validarLongitud(dato);
 		validarFormato(dato);
-		
-	}
-
-	private final void validarFormato(final String dato) {
-		if(!UtilTexto.contieneFormatoContrasena(dato)) {
-			final var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000211);
-			throw ServiceCoTaskerException.crear(mensajeUsuario);
-		}
 	}
 
 	private final  void validarObligatoriedad(final String dato) {
@@ -42,6 +34,13 @@ public class ContrasenaUsuarioValidationRule implements ValidationRule<String> {
 	private final void validarLongitud(final String dato) {
 		if(!UtilTexto.longitudValida(dato,8, 100)) {
 			final var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000209);
+			throw ServiceCoTaskerException.crear(mensajeUsuario);
+		}
+	}
+	
+	private final void validarFormato(final String dato) {
+		if(!UtilTexto.contieneFormatoContrasena(dato)) {
+			final var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000211);
 			throw ServiceCoTaskerException.crear(mensajeUsuario);
 		}
 	}

@@ -2,6 +2,7 @@ package com.eternalnovices.cotasker.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,6 +23,7 @@ import com.eternalnovices.cotasker.service.facade.concrete.usuario.RegistrarUsua
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api/usuario")
 public class UsuarioController {
@@ -48,7 +50,7 @@ public class UsuarioController {
 					.setContrasena(req.getContrasena());
 			facade.execute(dto);
 			codigoHttp = HttpStatus.OK;
-			respuesta.getMensajes().add(CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000700));
+			respuesta.getMensajes().add(CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000338));
 		} catch (CoTaskerException e) {
 			respuesta.getMensajes().add(e.getMensajeTecnico());
 			logger.error(e.getLugar(), e);
@@ -72,8 +74,8 @@ public class UsuarioController {
 					.setContrasena(req.getContrasena());
 			var res = facade.execute(dto);
 			respuesta.setDatos(UsuarioResponseMapper.convertListToResponse(res));
-			codigoHttp = HttpStatus.OK;
-			respuesta.getMensajes().add(CatalogoMensajes.obtenerContenidoMensaje(!res.isEmpty() ? CodigoMensaje.M0000000701: CodigoMensaje.M0000000702));
+			codigoHttp = res.size() == 1  ? HttpStatus.OK: HttpStatus.NOT_FOUND;
+			respuesta.getMensajes().add(CatalogoMensajes.obtenerContenidoMensaje(res.size() == 1  ? CodigoMensaje.M0000000313: CodigoMensaje.M0000000314));
 		} catch (CoTaskerException e) {
 			respuesta.getMensajes().add(e.getMensajeTecnico());
 			logger.error(e.getLugar(), e);

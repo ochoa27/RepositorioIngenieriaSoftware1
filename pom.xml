@@ -14,7 +14,7 @@
 	<name>CoTasker</name>
 	<description>Backend que ofrece todos los servicios de negocio de la aplicación tiendaOnline</description>
 	<properties>
-		<java.version>20</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>

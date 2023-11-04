@@ -37,7 +37,7 @@ public class ModificarProyectoUseCase implements UseCase<ProyectoDomain>{
 		final var resultados = getProyectoDAO().consultarPorId(id);
 		
 		if(resultados.isEmpty()) {
-			final var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000830);
+			final var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000302);
 			throw ServiceCoTaskerException.crear(mensajeUsuario);
 		}
 	}
@@ -54,8 +54,8 @@ public class ModificarProyectoUseCase implements UseCase<ProyectoDomain>{
 
 	private final void setFactoria(final DAOFactory factoria) {
 		if(UtilObjeto.esNulo(factoria)) {
-			final var mensajeUsuario=CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000000901);
-			final var mensajeTecnico=CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000000902);
+			final var mensajeUsuario=CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000311);
+			final var mensajeTecnico=CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000312);
 			throw ServiceCoTaskerException.crear(mensajeUsuario,mensajeTecnico);
 		}
 		this.factoria=factoria;

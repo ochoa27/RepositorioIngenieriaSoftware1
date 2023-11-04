@@ -22,7 +22,7 @@ import com.eternalnovices.cotasker.data.entity.support.FechasEntity;
 
 public class UsuarioProyectoSQLServerDAO extends SQLDAO implements UsuarioProyectoDAO{
 
-	private static final String PRIMARYKEY = "WHERE idProyecto = ? AND idUsuario = ? ";
+	private static final String PRIMARYKEY = "WHERE up.idProyecto = ? AND up.idUsuario = ? ";
 	
 	public UsuarioProyectoSQLServerDAO(final Connection conexion) {
 		super(conexion);
@@ -54,7 +54,7 @@ public class UsuarioProyectoSQLServerDAO extends SQLDAO implements UsuarioProyec
 	@Override
 	public void eliminar(UUID idProyecto,UUID idUsuario) {
 		final var sentencia = new StringBuilder();
-		sentencia.append("DELETE FROM UsuarioProyecto ");
+		sentencia.append("DELETE FROM UsuarioProyecto up ");
 		sentencia.append(PRIMARYKEY);
 		
 		try (final var sentenciaPreparada = getConexion().prepareStatement(sentencia.toString())) {
@@ -76,15 +76,18 @@ public class UsuarioProyectoSQLServerDAO extends SQLDAO implements UsuarioProyec
 	@Override
 	public Optional<UsuarioProyectoEntity> consultarPorId(UUID idProyecto,UUID idUsuario) {
 		final var sentencia = new StringBuilder();
-		sentencia.append("SELECT up.idProyecto, pr.nombre, pr.descripcion, pr.fechaCreacion, pr.fechaEstimadaInicio, pr.fechaEstimadaFin, up.IdUsuario, us.nombre, "
-				+ "us.apellido, us.correoElectronico, us.correoElectronicoConfirmado, us.contrasena ");
+		sentencia.append("SELECT up.idProyecto AS proyectoId, pr.nombre AS proyectoNombre, pr.descripcion AS proyectoDescripcion, "
+				+ "pr.fechaCreacion AS proyectoFechaCreacion, pr.fechaEstimadaInicio AS proyectoFechaEstimadaInicio, "
+				+ "pr.fechaEstimadaFin AS proyectoFechaEstimadaFin, up.IdUsuario AS usuarioId, "
+				+ "us.nombre AS usuarioNombre, us.apellido AS usuarioApellido,  us.correoElectronico AS usuarioCorreoElectronico, "
+				+ "us.correoElectronicoConfirmado AS usuarioCorreoElectronicoConfirmado, us.contrasena AS usuarioContrasena ");
 		sentencia.append("FROM  UsuarioProyecto up ");
 		sentencia.append("JOIN  Proyecto pr ");
 		sentencia.append("	ON   pr.idProyecto = up.IdProyecto ");
 		sentencia.append("JOIN  Usuario us ");
 		sentencia.append("	ON  us.IdUsuario = up.idUsuario ");
 		sentencia.append(PRIMARYKEY);
-
+		
 		Optional<UsuarioProyectoEntity> resultado = Optional.empty();
 		
 		try (final var sentenciaPreparada = getConexion().prepareStatement(sentencia.toString())) {
@@ -133,21 +136,16 @@ public class UsuarioProyectoSQLServerDAO extends SQLDAO implements UsuarioProyec
 		try (final var resultados = sentenciaPreparada.executeQuery()) {
 			if (resultados.next()) {
 				var usuarioProyectoEntity = UsuarioProyectoEntity.crear(
-						ProyectoEntity.crear(
-								UUID.fromString(resultados.getObject("up.idProyecto").toString()),
-								resultados.getString("pr.nombre"),
-								resultados.getString("pr.descripcion"), 
-								FechasEntity.crear(resultados.getDate("pr.fechaCreacion"), resultados.getDate("pr.fechaEstimadaInicio"), resultados.getDate("pr.fechaEstimadaFin"))
-								),
-						UsuarioEntity.crear(
-								UUID.fromString(resultados.getObject("up.idUsuario").toString()),
-								resultados.getString("us.nombre"),
-								resultados.getString("us.apellido"), 
-								resultados.getString("us.correoElectronico"),
-								BooleanEntity.crear(resultados.getBoolean("us.correoElectronicoConfirmado"), false),
-								resultados.getString("us.contrasena")
-								)
-						);
+						ProyectoEntity.crear(UUID.fromString(resultados.getObject("proyectoId").toString()),
+								resultados.getString("proyectoNombre"), resultados.getString("proyectoDescripcion"),
+								FechasEntity.crear(resultados.getDate("proyectoFechaCreacion"),
+										resultados.getDate("proyectoFechaEstimadaInicio"),
+										resultados.getDate("proyectoFechaEstimadaFin"))),
+						UsuarioEntity.crear(UUID.fromString(resultados.getObject("usuarioId").toString()),
+								resultados.getString("usuarioNombre"), resultados.getString("usuarioApellido"),
+								resultados.getString("usuarioCorreoElectronico"),
+								BooleanEntity.crear(resultados.getBoolean("usuarioCorreoElectronicoConfirmado"), false),
+								resultados.getString("usuarioContrasena")));
 				resultado = Optional.of(usuarioProyectoEntity);
 			}
 		} catch (SQLException e) {
@@ -167,8 +165,11 @@ public class UsuarioProyectoSQLServerDAO extends SQLDAO implements UsuarioProyec
 		final var sentencia = new StringBuilder();
 		String operadorCondicional = "WHERE";
 		
-		sentencia.append("SELECT up.idProyecto, pr.nombre, pr.descripcion, pr.fechaCreacion, pr.fechaEstimadaInicio, pr.fechaEstimadaFin, up.IdUsuario, us.nombre, "
-				+ "us.apellido, us.correoElectronico, us.correoElectronicoConfirmado, us.contrasena ");
+		sentencia.append("SELECT up.idProyecto AS proyectoId, pr.nombre AS proyectoNombre, pr.descripcion AS proyectoDescripcion, "
+				+ "pr.fechaCreacion AS proyectoFechaCreacion, pr.fechaEstimadaInicio AS proyectoFechaEstimadaInicio, "
+				+ "pr.fechaEstimadaFin AS proyectoFechaEstimadaFin, up.IdUsuario AS usuarioId, "
+				+ "us.nombre AS usuarioNombre, us.apellido AS usuarioApellido,  us.correoElectronico AS usuarioCorreoElectronico, "
+				+ "us.correoElectronicoConfirmado AS usuarioCorreoElectronicoConfirmado, us.contrasena AS usuarioContrasena ");
 		sentencia.append("FROM  UsuarioProyecto up ");
 		sentencia.append("JOIN  Proyecto pr ");
 		sentencia.append("	ON   pr.idProyecto = up.IdProyecto ");
@@ -177,13 +178,13 @@ public class UsuarioProyectoSQLServerDAO extends SQLDAO implements UsuarioProyec
 		
 		if(!UtilObjeto.esNulo(entity)) {
 			if(!UtilObjeto.esNulo(entity.getProyecto())) {
-				sentencia.append(operadorCondicional).append(" up.idProyecto = ?");
+				sentencia.append(operadorCondicional).append(" up.idProyecto = ? ");
 				operadorCondicional = "AND";
 				parametros.add(entity.getProyecto().getIdProyecto());
 			}
 			
 			if(!UtilObjeto.esNulo(entity.getUsuario())) {
-				sentencia.append(operadorCondicional).append(" up.idUsuario = ?");
+				sentencia.append(operadorCondicional).append(" up.idUsuario = ? ");
 				parametros.add(entity.getUsuario().getIdUsuario());
 			}
 
@@ -217,21 +218,16 @@ public class UsuarioProyectoSQLServerDAO extends SQLDAO implements UsuarioProyec
 			
 			while (resultados.next()) {
 				var usuarioProyectoEntity = UsuarioProyectoEntity.crear(
-						ProyectoEntity.crear(
-								UUID.fromString(resultados.getObject("up.idProyecto").toString()),
-								resultados.getString("pr.nombre"),
-								resultados.getString("pr.descripcion"), 
-								FechasEntity.crear(resultados.getDate("pr.fechaCreacion"), resultados.getDate("pr.fechaEstimadaInicio"), resultados.getDate("pr.fechaEstimadaFin"))
-								),
-						UsuarioEntity.crear(
-								UUID.fromString(resultados.getObject("up.idUsuario").toString()),
-								resultados.getString("us.nombre"),
-								resultados.getString("us.apellido"), 
-								resultados.getString("us.correoElectronico"),
-								BooleanEntity.crear(resultados.getBoolean("us.correoElectronicoConfirmado"), false),
-								resultados.getString("us.contrasena")
-								)
-						);
+						ProyectoEntity.crear(UUID.fromString(resultados.getObject("proyectoId").toString()),
+								resultados.getString("proyectoNombre"), resultados.getString("proyectoDescripcion"),
+								FechasEntity.crear(resultados.getDate("proyectoFechaCreacion"),
+										resultados.getDate("proyectoFechaEstimadaInicio"),
+										resultados.getDate("proyectoFechaEstimadaFin"))),
+						UsuarioEntity.crear(UUID.fromString(resultados.getObject("usuarioId").toString()),
+								resultados.getString("usuarioNombre"), resultados.getString("usuarioApellido"),
+								resultados.getString("usuarioCorreoElectronico"),
+								BooleanEntity.crear(resultados.getBoolean("usuarioCorreoElectronicoConfirmado"), false),
+								resultados.getString("usuarioContrasena")));
 				listaResultados.add(usuarioProyectoEntity);
 			}
 		} catch (SQLException e) {

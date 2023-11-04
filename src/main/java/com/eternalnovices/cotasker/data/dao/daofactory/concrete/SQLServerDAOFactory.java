@@ -47,18 +47,18 @@ public class SQLServerDAOFactory extends DAOFactory {
             
             if (url == null || url.isEmpty() || user == null || user.isEmpty() || password == null || password.isEmpty()) {
             	var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000004);
-    			var mensajeTecnico = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000703);
+    			var mensajeTecnico = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000315);
     			throw DataCoTaskerException.crear(mensajeUsuario, mensajeTecnico);
             }
             
             conexion = DriverManager.getConnection(url, user, password);
         } catch (SQLException e) {
 			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000004);
-			var mensajeTecnico = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000704);
+			var mensajeTecnico = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000316);
 			throw DataCoTaskerException.crear(e, mensajeUsuario, mensajeTecnico);
         } catch (Exception e) {
 			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000004);
-			var mensajeTecnico = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000705);
+			var mensajeTecnico = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000317);
 			throw DataCoTaskerException.crear(e, mensajeUsuario, mensajeTecnico);        	
         }
     }
@@ -128,7 +128,7 @@ public class SQLServerDAOFactory extends DAOFactory {
 	private void verificarNoConexion() {
         if(!UtilSQL.conexionAbierta(conexion)) {
 			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000004);
-			var mensajeTecnico = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000706);
+			var mensajeTecnico = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000318);
 			throw DataCoTaskerException.crear(mensajeUsuario, mensajeTecnico);		
         }
 	}

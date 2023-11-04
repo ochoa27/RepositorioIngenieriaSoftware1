@@ -36,7 +36,7 @@ public class ModificarUsuarioUseCase implements UseCase<UsuarioDomain>{
 		final var resultados = getUsuarioDAO().consultarPorId(id);
 		
 		if(resultados.isEmpty()) {
-			final var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000828);
+			final var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000300);
 			throw ServiceCoTaskerException.crear(mensajeUsuario);
 		}
 	}
@@ -47,7 +47,7 @@ public class ModificarUsuarioUseCase implements UseCase<UsuarioDomain>{
 		final var resultados = getUsuarioDAO().consultar(entity);
 		
 		if(!resultados.isEmpty()) {
-			final var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000829);
+			final var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000301);
 			throw ServiceCoTaskerException.crear(mensajeUsuario);
 		}
 	}

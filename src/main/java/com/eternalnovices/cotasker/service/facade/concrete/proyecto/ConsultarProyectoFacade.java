@@ -36,8 +36,8 @@ public class ConsultarProyectoFacade  implements FacadeFind<ProyectoDTO>{
 			throw exception;
 		}catch (Exception exception) {
 			daoFactory.cancelarTransaccion();
-			final var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000905);
-			final var mensajeTecnico = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000906);
+			final var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000303);
+			final var mensajeTecnico = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000304);
 			throw ServiceCoTaskerException.crear(mensajeUsuario, mensajeTecnico);
 		}finally {
 			daoFactory.cerrarConexion();

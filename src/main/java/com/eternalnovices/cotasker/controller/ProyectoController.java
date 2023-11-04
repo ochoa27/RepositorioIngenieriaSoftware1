@@ -6,6 +6,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,8 +22,12 @@ import com.eternalnovices.cotasker.crosscutting.messages.enumerator.CodigoMensaj
 import com.eternalnovices.cotasker.crosscutting.util.UtilFecha;
 import com.eternalnovices.cotasker.service.dto.FechasDTO;
 import com.eternalnovices.cotasker.service.dto.ProyectoDTO;
+import com.eternalnovices.cotasker.service.dto.UsuarioDTO;
+import com.eternalnovices.cotasker.service.dto.UsuarioProyectoDTO;
 import com.eternalnovices.cotasker.service.facade.concrete.proyecto.RegistrarProyectoFacade;
+import com.eternalnovices.cotasker.service.facade.concrete.usuarioproyecto.RegistrarUsuarioProyectoFacade;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api/proyecto")
 public class ProyectoController {
@@ -39,8 +44,10 @@ public class ProyectoController {
 		HttpStatus codigoHttp = HttpStatus.BAD_REQUEST;
 		
 		try {
-			RegistrarProyectoFacade facade = new RegistrarProyectoFacade();
-			var dto = ProyectoDTO.crear()
+			RegistrarProyectoFacade facadeProyecto = new RegistrarProyectoFacade();
+			RegistrarUsuarioProyectoFacade facadeUsuarioProyecto = new RegistrarUsuarioProyectoFacade();
+			
+			var dtoProyecto = ProyectoDTO.crear()
 						.setIdProyecto(req.getIdProyecto())
 						.setNombre(req.getNombre())
 						.setDescripcion(req.getDescripcion())
@@ -48,17 +55,25 @@ public class ProyectoController {
 								.setFechaCreacion(UtilFecha.obtenerFechaActual())
 								.setFechaEstimadaInicio(req.getFecha().getFechaEstimadaInicio())
 								.setFechaEstimadaFin(req.getFecha().getFechaEstimadaFin()));
-			facade.execute(dto);
+			
+			var idProyecto = facadeProyecto.execute(dtoProyecto, req.getIdUsuario());
+			
+			var dtoUsuarioProyecto = UsuarioProyectoDTO.crear()
+					.setProyecto(ProyectoDTO.crear().setIdProyecto(idProyecto))
+					.setUsuario(UsuarioDTO.crear().setIdUsuario(req.getIdUsuario()));
+			
+			facadeUsuarioProyecto.execute(dtoUsuarioProyecto);
+			
 			var res = new ArrayList<SolicitarProyecto>();
-			res.add(ProyectoResponseMapper.convertToResponse(dto, req.getIdUsuario()));
+			res.add(ProyectoResponseMapper.convertToResponse(dtoProyecto.setIdProyecto(idProyecto), req.getIdUsuario()));
 			respuesta.setDatos(res);
 			codigoHttp = HttpStatus.OK;
-			respuesta.getMensajes().add(CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000707));
+			respuesta.getMensajes().add(CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000347));
 		} catch (CoTaskerException e) {
 			respuesta.getMensajes().add(e.getMensajeTecnico());
 			logger.error(e.getLugar(), e);
 		} catch (Exception e) {
-			respuesta.getMensajes().add(CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000708));
+			respuesta.getMensajes().add(CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M0000000348));
 			logger.error(e);
 		}
 		
